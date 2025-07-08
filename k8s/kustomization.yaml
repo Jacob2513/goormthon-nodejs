@@ -2,6 +2,6 @@ resources:
   - backend.yaml
 
 configMapGenerator:
-  - name: golang-backend-config
+  - name: nodejs-backend-config
     files:
       - config/config.json

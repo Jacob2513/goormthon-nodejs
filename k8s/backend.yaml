@@ -1,16 +1,16 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: golang-backend
+  name: nodejs-backend
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: golang-backend
+      app: nodejs-backend
   template:
     metadata:
       labels:
-        app: golang-backend
+        app: nodejs-backend
     spec:
       containers:
       - name: backend
@@ -24,15 +24,15 @@ spec:
       volumes:
       - name: config-volume
         configMap:
-          name: golang-backend-config
+          name: nodejs-backend-config
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: golang-backend
+  name: nodejs-backend
 spec:
   selector:
-    app: golang-backend
+    app: nodejs-backend
   ports:
   - port: 80
     targetPort: 8080
